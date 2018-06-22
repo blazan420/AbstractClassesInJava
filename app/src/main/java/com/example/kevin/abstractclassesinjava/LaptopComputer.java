@@ -5,6 +5,7 @@ public class LaptopComputer extends Computer {
     private String touchPad;
     private double cpuPower;
     private double ram;
+    private String mouse;
 
     //Constructor
     public LaptopComputer(String name, String screen, String keyboard, String mouse,
@@ -14,6 +15,7 @@ public class LaptopComputer extends Computer {
         this.cpuPower = cpuPower;
         this.ram = ram;
         this.touchPad = touchPad;
+        this.mouse = mouse;
     }
 
 
@@ -41,6 +43,14 @@ public class LaptopComputer extends Computer {
         this.ram = ram;
     }
 
+    public String getMouse() {
+        return mouse;
+    }
+
+    public void setMouse(String mouse) {
+        this.mouse = mouse;
+    }
+
     @Override
     public double evaluatePerformance() {
         return cpuPower * ram;
@@ -49,6 +59,6 @@ public class LaptopComputer extends Computer {
     @Override
     public String toString() {
 
-        return String.format("%s%n %s: %s", super.toString(), "Touch Pad", getTouchPad());
+        return String.format("%s%n %s: %s %s: %s", super.toString(), "Touch Pad", getTouchPad(), "Mouse", getMouse());
     }
 }
