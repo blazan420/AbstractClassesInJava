@@ -13,21 +13,21 @@ public class MainActivity extends AppCompatActivity {
 
         TextView txtDesktopComputer = (TextView) findViewById(R.id.txtDesktopComputer);
         TextView txtLaptopComputer = (TextView) findViewById(R.id.txtLabtopComputer);
-        TextView txtSpaceForceComputer = (TextView)findViewById(R.id.txtSpaceForceComputer);
+        TextView txtSpaceForceComputer = (TextView) findViewById(R.id.txtSpaceForceComputer);
         TextView txtTabletComputer = (TextView) findViewById(R.id.txtTabletComputer);
 
-        TextView txtDesktopComputerPerformance = (TextView)findViewById(R.id.txtDesktopComputerPerformance);
-        TextView txtLaptopComputerPerformance = (TextView)findViewById(R.id.txtLabtopComputerPerformance);
-        TextView txtSpaceForceComputerPerformance = (TextView)findViewById(R.id.txtSpaceForceComputerPerformance);
-        TextView txtTabletComputerPerformance = (TextView)findViewById(R.id.txtTabletComputerPerformance);
+        TextView txtDesktopComputerPerformance = (TextView) findViewById(R.id.txtDesktopComputerPerformance);
+        TextView txtLaptopComputerPerformance = (TextView) findViewById(R.id.txtLabtopComputerPerformance);
+        TextView txtSpaceForceComputerPerformance = (TextView) findViewById(R.id.txtSpaceForceComputerPerformance);
+        TextView txtTabletComputerPerformance = (TextView) findViewById(R.id.txtTabletComputerPerformance);
 
 
         DesktopComputer desktopComputer = new DesktopComputer("iMac", "High Quality Screen", "Physical Keyboard",
                 "physical mouse", 2000, 1000);
-        LaptopComputer laptopComputer = new LaptopComputer("Macbook Pro", "High Quality Screen", "Physical Keyboard", "Physical Mouse", 2000,1500,"High Quality Touch Pad" );
+        LaptopComputer laptopComputer = new LaptopComputer("Macbook Pro", "High Quality Screen", "Physical Keyboard", "Physical Mouse", 2000, 1500, "High Quality Touch Pad");
 
         SpaceForceComputer spaceForceComputer = new SpaceForceComputer("VK-World S8", "HiRes", "Virtual Keyboard", "Android 7.0", 4000, 4);
-        TabletComputer tabletComputer= new TabletComputer("iPad", "Retina Screen", "Virtual Keyboard", "iOS", 800, 700, 10);
+        TabletComputer tabletComputer = new TabletComputer("iPad", "Retina Screen", "Virtual Keyboard", "iOS", 800, 700, 10);
 
 
         txtDesktopComputerPerformance.setText("Performance: " + desktopComputer.evaluatePerformance() + "\n");
@@ -54,16 +54,16 @@ public class MainActivity extends AppCompatActivity {
                 txtLaptopComputer.setText(currentLaptopComputer.toString());
             }
             if (computer instanceof SpaceForceComputer) {
-                SpaceForceComputer currentSpaceForceComputer = (SpaceForceComputer) computer;
-                txtSpaceForceComputer.setText(currentSpaceForceComputer.toString());
+                if (!(computer instanceof TabletComputer)) {
+                    SpaceForceComputer currentSpaceForceComputer = (SpaceForceComputer) computer;
+                    txtSpaceForceComputer.setText(currentSpaceForceComputer.toString());
+                }
             }
             if (computer instanceof TabletComputer) {
                 TabletComputer currentTabletComputer = (TabletComputer) computer;
                 txtTabletComputer.setText(currentTabletComputer.toString());
             }
         }
-
-
 
 
     }
