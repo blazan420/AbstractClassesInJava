@@ -46,4 +46,18 @@ public class DesktopComputer extends Computer {
         }
         this.ram = ram;
     }
+
+    @Override
+    public double evaluatePerformance() {
+
+        return cpuPower * ram;
+
+
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s%n%s: %f%n%s: %f", super.toString(),
+                "CPU Power", getCpuPower(), "Ram", getRam());
+    }
 }
